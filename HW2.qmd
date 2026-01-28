@@ -1,0 +1,64 @@
+---
+title: "New Title"
+author: "Melannie Moreno Rolón"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+# Load packages
+library(tidyverse)
+library(here)
+
+# Read in NRI county-level data
+nri_raw <- read_csv(here("data", "NRI_County.csv"))
+
+# Inspect variables
+glimpse(nri_raw)
+
+# Keep only the 50 states (remove territories)
+nri_states <- nri_raw %>%
+  filter(!`State Name Abbreviation` %in% c("PR", "GU", "VI", "AS", "MP"))
+
+# Identify variables of interest
+# Example variables (names may differ slightly in your CSV):
+# - STATE
+# - COUNTY
+# - RISK_SCORE or RISK_INDEX
+# - RISK_RATING
+
+# Create a comparison variable
+nri_compare <- nri_states %>%
+  mutate(
+    region = if_else(`State Name Abbreviation` == "CA" | `State Name` == "California", "California", "Other States")
+  )
+
+# Example visualization (boxplot – adjust as needed)
+ggplot(nri_compare, aes(x = region, y = `National Risk Index - Score - Composite`, fill = region)) +
+  geom_boxplot(alpha = 0.7, outlier.alpha = 0.4) +
+  scale_fill_manual(values = c("CA" = "#1b9e77", "Other States" = "#d95f02")) +
+  labs(
+    title = "County-Level National Risk Index Scores",
+    subtitle = "California counties compared to counties in other U.S. states",
+    caption = "Data: FEMA National Risk Index (2025 Release)",
+    x = NULL,
+    y = "National Risk Index Score"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+
+```
+
+## V. Answer some questions
+1. What are your variables of interest and what kinds of data (e.g. numeric, categorical, ordered, etc.) are they (a bullet point list is fine)?
+
+
+
+2. How did you decide which type of graphic form was best suited for answering the question? What alternative graphic forms could you have used instead? Why did you settle on this particular graphic form?
+
+3. Summarize your main finding in no more than two sentences.
+
+4. What modifications did you make to this visualization to make it more easily readable?
+
+5. Is there anything you wanted to implement, but didn’t know how? If so, please describe.
