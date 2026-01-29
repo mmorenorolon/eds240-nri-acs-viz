@@ -62,19 +62,13 @@ ggplot(nri_compare, aes(x = nri_score, fill = region)) +
 ##                                  Labeling                                ----
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
-  labs(title = "How do FEMA National Risk Index scores for \ncounties in 
-       California compare to those in other \nstates?",
+  labs(title = "How do FEMA National Risk Index scores for \ncounties in California compare to those in other \nstates?",
        
-       subtitle = "California counties are heavily concentrated at the highest 
-       NRI scores, \nwhile counties in other states span a much wider range of 
-       risk levels.",
+       subtitle = "California counties are heavily concentrated at the highest NRI scores, \nwhile counties in other states span a much wider range of risk levels.",
        
        caption = "Source: FEMA Resilience Analysis & Planning Tool (2025)",
        
-       alt_insight = "Density plot comparing county-level National Risk Index 
-       composite scores for California and other U.S. states. California’s 
-       distribution is concentrated at scores around 80-100, while counties in 
-       other states span a wider range across the full 0–100 scale.",
+       alt_insight = "Density plot comparing county-level National Risk Index composite scores for California and other U.S. states. California’s distribution is concentrated at scores around 80-100, while counties in other states span a wider range across the full 0–100 scale.",
        
        x = "National Risk Index Score Composite",
        y = "Density") +

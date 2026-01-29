@@ -12,7 +12,7 @@ The Federal Emergency Management Agency (FEMA) is a U.S. government agency dedic
 
 ## Repository Structure
 
-![](Screenshot 2026-01-28 215314.png){width=300}
+![](repo-structure.png){width=300}
 
 ## Data Sources & Access
 
