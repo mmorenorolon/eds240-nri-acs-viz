@@ -1,52 +1,42 @@
-# FEMA National Risk Index (NRI)
+# Visualizing FEMA National Risk Index (NRI) Scores in California
+
 The goal of this assignment is to create a data visualization that answers the question:
 
-How do FEMA National Risk Index scores for counties in California compare to those in other U.S. states?
+> *"How do FEMA National Risk Index scores for counties in California compare to those in other U.S. states?"*
 
-The project focuses on data wrangling, visualization design, and clear communication of patterns in national risk data—without relying on maps.
+This project focuses on data wrangling, visualization design, and communication of patterns in national risk data.
 
 ## About FEMA’s National Risk Index (NRI)
 
-The Federal Emergency Management Agency (FEMA) is a U.S. government agency whose mission is to help people before, during, and after disasters. In 2021, FEMA launched the National Risk Index (NRI), a dataset designed to help communities understand and compare their vulnerability to natural hazards.
+The Federal Emergency Management Agency (FEMA) is a U.S. government agency dedicated to help people before, during, and after disasters. In 2021, FEMA launched the National Risk Index (NRI), a dataset and online tool designed to help communities understand and compare their exposure to natural hazards. The NRI integrates scores for expected annual loss, social vulnerability, and community resilience to produce a composite risk score, which represents a county’s percentile ranking relative to other U.S. counties and ranges qualitatively from Very Low to Very High risk (FEMA, 2025).
 
-The NRI provides information for communities at risk from 18 different natural hazards, offering a baseline risk measurement at the Census tract or county level. These measurements include:
+## Repository Structure
 
-- Expected Annual Loss (EAL)
+![](Screenshot 2026-01-28 215314.png){width=300}
 
-- Social Vulnerability (SVI)
-
-- Community Resilience (CRI)
-
-Risk in the NRI is defined as the potential for negative impacts resulting from natural hazards and is calculated using the following equation:
-
-Risk = Expected Annual Loss × Social Vulnerability ÷ Community Resilience
-
-Risk = Expected Annual Loss × Social Vulnerability ÷ Community Resilience
-
-Each hazard receives a hazard-specific risk score, and these are combined to create a composite risk score across all 18 hazards.
-
-Scores are expressed as percentile rankings, meaning a county with a Risk Index percentile of 84.32 has a higher risk than 84.32% of all other U.S. counties. Counties are also assigned qualitative risk ratings ranging from Very Low to Very High.
-
-In December 2025, FEMA integrated the National Risk Index into the Resilience Analysis and Planning Tool (RAPT), making NRI data more accessible for analysis and planning.
-
-## Data Sources
+## Data Sources & Access
 
 FEMA National Risk Index (2025 Release)
-Downloaded from FEMA’s Resilience Analysis and Planning Tool (RAPT) as a county-level CSV file.
+Downloaded from ![FEMA’s Resilience Analysis and Planning Tool (RAPT)](https://experience.arcgis.com/experience/0a317e8998534c30a9b2d3861c814d42/?views=Add-Data) as a county-level CSV file.
 
 Note:
+
 The raw data file is stored locally in a data/ folder and is not tracked by GitHub. The data/ directory is included in .gitignore.
 This repository contains coursework for HW #2 in EDS 240, which explores county-level natural hazard risk using FEMA’s National Risk Index (NRI).
 
-## Repository Structure
-```
-eds240-nri-acs-viz/
-    │
-├── HW2.qmd              
-├── README.md            
-├── .gitignore           
-│
-├── data/                
-    │
-└── scripts/
-```
+## Authors & Contributors
+
+**Melannie Moreno Rolón**
+
+Master of Environmental Data Science (MEDS), UCSB Bren School
+GitHub: https://github.com/mmorenorolon
+
+## References & Acknowledgements
+
+Data Visualization & Communication. (2025). Github.Io. Retrieved January 28, 2026, from https://eds-240-data-viz.github.io/
+
+FEMA. Resilience Analysis and Planning Tool (RAPT). Retrieved January 28, 2026,
+https://www.fema.gov/rapt
+
+National Risk Index Data. (2025). Fema.Gov. Retrieved January 28, 2026, from https://www.fema.gov/sites/default/files/documents/fema_national-risk-index_technical-documentation.pdf?utm_source=chatgpt.com
+
