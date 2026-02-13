@@ -12,7 +12,22 @@ The Federal Emergency Management Agency (FEMA) is a U.S. government agency dedic
 
 ## Repository Structure
 
-![](repo-structure.png)
+eds240-nri-acs-viz
+├── data
+│   ├── ACS-1yr-2023-county-race-ethnicity.csv
+│   └── National_Risk_Index_Counties.csv
+├── HW2_files
+│   └── figure-html
+│       └── unnamed-chunk-2-1.png
+├── eds240-nri-acs-viz.Rproj
+├── HW2.pdf
+├── HW2.qmd
+├── HW3.pdf
+├── HW3.qmd
+├── LICENSE
+├── README.html
+├── README.md
+└── repo-structure.png
 
 ## Data Sources & Access
 

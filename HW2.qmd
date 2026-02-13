@@ -15,7 +15,7 @@ library(tidyverse)
 library(here)
 
 # Read in NRI county-level data
-nri_raw <- read_csv(here("data", "National_Risk_Index_Counties_807384124455672111.csv"))
+nri_raw <- read_csv(here("data", "National_Risk_Index_Counties.csv"))
 
 # Remove US territories
 nri_states <- nri_raw %>%
