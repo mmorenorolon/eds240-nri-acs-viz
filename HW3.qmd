@@ -5,6 +5,8 @@ date: last-modified
 format: pdf
 editor_options: 
   chunk_output_type: console
+warning: false
+message: false
 ---
 
 ```{r,warning=FALSE,message=FALSE}
@@ -16,25 +18,25 @@ library(scales)
 # III. Import & save ACS data
 ```{r}
 #....Step 1a: see all available ACS variables + descriptions.....
-# acs_vars <- tidycensus::load_variables(year = 2023,
-#                                        dataset = "acs1")
-# 
-# #..............Step 1b: import race & ethnicity data.............
-# race_ethnicity <- tidycensus::get_acs(
-#   geography = "county",
-#   survey = "acs1",
-#   # NOTE: you may not end up using all these variables
-#   variables = c("B01003_001", "B02001_002", "B02001_003",
-#                 "B02001_004", "B02001_005", "B02001_006",
-#                 "B02001_007", "B02001_008", "B03002_012",
-#                 "B03002_002"),
-#   state = "CA",
-#   year = 2023) |>
-#   # join variable descriptions (so we know what's what!)
-#   dplyr::left_join(acs_vars, by = dplyr::join_by(variable == name))
-# 
-# #.................Step 2: write ACS data to file.................
-# readr::write_csv(race_ethnicity, here::here("data", "ACS-1yr-2023-county-race-ethnicity.csv"))
+acs_vars <- tidycensus::load_variables(year = 2023,
+                                       dataset = "acs1")
+
+#..............Step 1b: import race & ethnicity data.............
+race_ethnicity <- tidycensus::get_acs(
+  geography = "county",
+  survey = "acs1",
+  # NOTE: you may not end up using all these variables
+  variables = c("B01003_001", "B02001_002", "B02001_003",
+                "B02001_004", "B02001_005", "B02001_006",
+                "B02001_007", "B02001_008", "B03002_012",
+                "B03002_002"),
+  state = "CA",
+  year = 2023) |>
+  # join variable descriptions (so we know what's what!)
+  dplyr::left_join(acs_vars, by = dplyr::join_by(variable == name))
+
+#.................Step 2: write ACS data to file.................
+readr::write_csv(race_ethnicity, here::here("data", "ACS-1yr-2023-county-race-ethnicity.csv"))
 
 #..................Step 3: read in your CSV file.................
 race_ethnicity <- readr::read_csv(here::here("data", "ACS-1yr-2023-county-race-ethnicity.csv"))
@@ -126,20 +128,26 @@ ggplot(plot_data,
     x = "Population-Weighted NRI Composite Score",
     y = "Race/Ethnic Group",
     title = "Climate Hazard Risk Exposure by Ethnic Group in California",
-    subtitle = "Population-weighted composite scores show differences in average climate hazard exposure\n across racial and ethnic groups. The solid line indicates the statewide average"
+    subtitle = "Population-weighted composite scores show differences in average climate hazard exposure across racial and ethnic groups.\nThe solid line indicates the statewide average."
   ) +
   
-  annotate("text", x = 98.94, y = "Black or African American", 
-           label = "Statewide\nAverage\n(~98.99)") +
+  annotate("text", x = 98.92, y = "Black or African American", 
+           label = "Statewide\nAverage\n(~98.99)", size = 2) +
   
   theme_bw() +
   
   theme(plot.background = element_rect(fill = "white"),
         panel.background = element_rect(fill = "white"),
         panel.border = element_rect(linewidth = 3,colour = "grey80"),
-        panel.grid = element_blank(),
+        panel.grid.minor = element_blank(),
         axis.line = element_line(linewidth = 0.5, colour = "grey80"),
-        plot.title = element_text(size = rel(1.5), face = "bold"),
+        plot.title = element_text(size = rel(0.9), face = "bold",
+                                  margin = margin(t = 10,
+                                                  r = 1,
+                                                  l = 1,
+                                                  b = 10)),
+        plot.title.position = "plot",
+        plot.subtitle = element_text(size = 7),
         axis.ticks.length.y = unit(0.25, "cm"),
         axis.ticks.length.x = unit(-0.25, "cm"),
         axis.title.y = element_blank()) +
