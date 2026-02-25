@@ -19,20 +19,23 @@ The Federal Emergency Management Agency (FEMA) is a U.S. government agency dedic
 The U.S. Census Bureau is the largest statistical agency of the federal government and serves as the nation’s primary provider of population and economic data. It maintains comprehensive demographic, social, and economic datasets for every U.S. state and territory. By collecting information at standardized geographic levels—such as states, counties, and census tracts—the Census Bureau enables consistent comparison and spatial analysis across regions. The analysis draws on county‑level race and ethnicity data for California obtained through the Census Data API. The API delivers programmatic access to American Community Survey (ACS) estimates.
 
 ## Repository Structure
+
 ```
 eds240-nri-acs-viz
-├── data
-│   ├── ACS-1yr-2023-county-race-ethnicity.csv
-│   └── National_Risk_Index_Counties.csv
-├── eds240-nri-acs-viz.Rproj
-├── HW2.pdf
-├── HW2.qmd
-├── HW3.pdf
-├── HW3.qmd
-├── LICENSE
-├── README.html
-├── README.md
-└── repo-structure.png
+│   .gitignore
+│   .Rhistory
+│   eds240-nri-acs-viz.Rproj
+│   HW2.pdf
+│   HW2.qmd
+│   HW3.pdf
+│   HW3.qmd
+│   LICENSE
+│   README.html
+│   README.md
+│
+├───data
+│
+└───HW2_files
 ```
 
 ## Data Sources & Access
